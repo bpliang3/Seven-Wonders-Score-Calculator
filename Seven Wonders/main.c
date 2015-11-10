@@ -7,6 +7,9 @@
 //
 
 #include <stdio.h>
+#include <string.h>
+
+int MAX = 100;
 
 int sum(int tablet, int wheel, int compass);
 
@@ -32,13 +35,20 @@ int main()
         return 0;
     }
 
-    else{
+    if (check == 'n') {
         
         printf("Please input the number of players ");
         scanf("%d", &n);
+        
+
+
         for (int i=0; i<n; i++) {
             
-            printf("Player %d\n", i+1);
+            char *a[n];
+        
+            printf("\nName of Player %d: ", i+1);
+            scanf ("%99[^\n]", a[i]);
+            //printf("Player %s \n", *a);
             printf("Please input number of points from leader cards: ");
             scanf("%d", &leaders);
             printf("Please input number of points from black cards: ");
@@ -72,6 +82,11 @@ int main()
         
         return 0;
     }
+    else{
+        printf("Invalid input\n");
+        return 0;
+    }
+
 }
 
 
@@ -94,5 +109,3 @@ int sum(int tablet, int wheel, int compass)
     result = (sets * 7) + (tablet*tablet) + (wheel*wheel) + (compass*compass);
     return result;
 }
-
-
